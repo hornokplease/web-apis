@@ -11,8 +11,16 @@ export const getToken = async (user: USER) => {
   const dbClient = await pool.connect();
 
   try {
-    if (!user) throw new Error("user object required for token generation");
-    if (!AUTH_KEY) throw new Error("AUTH_KEY is not defined");
+    if (!user) {
+      const error = new Error("user object required for token generation");
+      (error as any).status = 400;
+      throw error;
+    }
+    if (!AUTH_KEY) {
+      const error = new Error("AUTH_KEY is not defined");
+      (error as any).status = 400;
+      throw error;
+    }
 
     const { rows } = await dbClient.query("SELECT * FROM session where id=$1", [
       user.id,
@@ -49,7 +57,7 @@ export const getToken = async (user: USER) => {
     );
 
     return result.rows[0]?.session_token;
-  } catch (error) {
-    throw new Error("Auth:" + error);
+  } finally {
+    dbClient.release();
   }
 };

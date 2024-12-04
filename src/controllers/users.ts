@@ -42,8 +42,7 @@ export const create = async (req: Request, res: Response): Promise<void> => {
     if (error.code == "23505") {
       res.status(409).send({ error: "Email already registered" });
     } else {
-      console.error(error);
-      res.status(500).send(error);
+      throw error;
     }
   } finally {
     dbClient.release();
@@ -79,9 +78,6 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       const sessionToken = await getToken(existingUser);
       res.status(200).json({ user: sanitizeUser(existingUser), sessionToken });
     }
-  } catch (error) {
-    console.error(error);
-    res.status(400).send(error);
   } finally {
     dbClient.release();
   }

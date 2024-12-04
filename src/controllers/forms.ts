@@ -6,7 +6,6 @@ export const create = async (req: Request, res: Response): Promise<void>  => {
 
     try {
         
-    } catch (error) {
         
     } finally {
         dbClient.release()
@@ -17,7 +16,6 @@ export const find = async (req: Request, res: Response): Promise<void>  => {
 
     try {
         
-    } catch (error) {
         
     } finally {
         dbClient.release()

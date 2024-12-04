@@ -9,8 +9,4 @@ eventRouter.get("/:id", find);
 
 eventRouter.post("/", create);
 
-eventRouter.get("/:id/form");
-
-eventRouter.post("/:id/form");
-
 export default eventRouter;

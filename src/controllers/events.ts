@@ -13,9 +13,6 @@ export const create = async (req: Request, res: Response): Promise<void> => {
       [ownerId, name, location, start_date, end_date]
     );
     res.status(200).json(result[0]);
-  } catch (error) {
-    res.status(500).json({ error: "Internal Server Error", message: error });
-    console.log(error);
   } finally {
     dbClient.release();
   }
@@ -32,9 +29,6 @@ export const findAll = async (req: Request, res: Response): Promise<void> => {
       [ownerId]
     );
     res.status(200).json(result);
-  } catch (error) {
-    res.status(500).json({ error: "Internal Server Error", message: error });
-    console.log(error);
   } finally {
     dbClient.release();
   }
@@ -52,9 +46,6 @@ export const find = async (req: Request, res: Response): Promise<void> => {
       [ownerId, id]
     );
     res.status(200).json(result[0]);
-  } catch (error) {
-    res.status(500).json({ error: "Internal Server Error", message: error });
-    console.log(error);
   } finally {
     dbClient.release();
   }
