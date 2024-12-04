@@ -1,7 +1,7 @@
 import express, { Express, Response } from "express";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-import userRouter from "./routes/users";
+import router from "./routes/allRoutes";
 dotenv.config();
 
 const app: Express = express();
@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.send("This is backend for hopin dashboard");
 });
 
-app.use("/api/auth/", userRouter);
+app.use("/api/", router);
 
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
