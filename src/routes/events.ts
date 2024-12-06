@@ -1,5 +1,5 @@
-import { create, find, findAll } from "@controllers/events";
 import { Router } from "express";
+import { create, find, findAll } from "../controllers/events";
 
 const eventRouter = Router();
 

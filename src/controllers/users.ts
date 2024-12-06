@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import pool from "../config/db.config";
 import { getToken } from "./auth";
-import { sanitizeUser } from "src/utils/utils";
+import { sanitizeUser } from "../services/utils";
 
 export const create = async (req: Request, res: Response): Promise<void> => {
   const {

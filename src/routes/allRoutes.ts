@@ -1,7 +1,7 @@
 import { Router } from "express";
 import userRouter from "./users";
 import eventRouter from "./events";
-import { auth } from "src/middleware/auth";
+import { auth } from "../middleware/auth";
 
 const router = Router();
 

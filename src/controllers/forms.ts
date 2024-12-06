@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import pool from "src/config/db.config";
+import pool from "../config/db.config";
 
 export const create = async (req: Request, res: Response): Promise<void>  => {
     const dbClient = await pool.connect();

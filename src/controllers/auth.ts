@@ -1,7 +1,7 @@
-import pool from "src/config/db.config";
 import jwt from "jsonwebtoken";
-import { USER } from "src/models/users";
 import dotenv from "dotenv";
+import pool from "../config/db.config";
+import { USER } from "../models/users";
 
 dotenv.config();
 
