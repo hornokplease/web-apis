@@ -8,3 +8,5 @@ COPY src ./src
 COPY .env ./.env
 RUN pnpm build
 CMD ["pnpm", "start"]
+
+# sudo docker run -d --name hopin_webapi -p 4000:4000 -v/etc/ssl/certs/ap-south-1-bundle.pem:/etc/ssl/certs/ap-south-1-bundle.pem effdubois/hopin_webapi:v1.6
